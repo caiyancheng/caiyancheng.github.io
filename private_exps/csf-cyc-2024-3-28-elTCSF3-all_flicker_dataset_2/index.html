@@ -1,0 +1,358 @@
+<html>
+<head>
+<title>csf-cyc-2024-3-28-elTCSF3-all_flicker_dataset_2</title>
+
+<script type="text/javascript">
+function detectLeftButton(evt) {
+    evt = evt || window.event;
+    var button = evt.which || evt.button;
+    return button == 1;
+}
+</script>
+<link rel="stylesheet" type="text/css" href="style.css"></head>
+
+<body>
+<h1>5-dimensional CSFs: spatial and temporal frequency, luminance, size and eccentricity</h1>
+<h2>Fitting error</h2>
+<TABLE>
+<tr><td rowspan="2">Dataset</td>
+<td colspan="3">Fitting error</td>
+<td colspan="3">Sensitivity adjustment</td>
+</tr>
+<tr><td><a href="#elTCSF-3">elTCSF-3</a></td>
+<td><a href="#castle-csf">castleCSF</a></td>
+<td><a href="#stela-csf">stelaCSF</a></td>
+<td><a href="#elTCSF-3">elTCSF-3</a></td>
+<td><a href="#castle-csf">castleCSF</a></td>
+<td><a href="#stela-csf">stelaCSF</a></td>
+</tr>
+<tr><td>Average training</td>
+<td>8.20 [dB]</td>
+<td>2.29 [dB]</td>
+<td>4.22 [dB]</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr><td><a href="#hartmann1979">hartmann1979</a></td>
+<td>7.04 [dB]</td>
+<td>1.27 [dB]</td>
+<td>3.25 [dB]</td>
+<td>0.370</td>
+<td>0.571</td>
+<td>0.884</td>
+</tr>
+<tr><td><a href="#deLange1958b">deLange1958b</a></td>
+<td>6.75 [dB]</td>
+<td>2.97 [dB]</td>
+<td>1.45 [dB]</td>
+<td>0.635</td>
+<td>1.389</td>
+<td>0.852</td>
+</tr>
+<tr><td><a href="#krajancich2021">krajancich2021</a></td>
+<td>15.93 [dB]</td>
+<td>0.29 [dB]</td>
+<td>2.92 [dB]</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr><td><a href="#hecht1933">hecht1933</a></td>
+<td>6.70 [dB]</td>
+<td>2.72 [dB]</td>
+<td>1.62 [dB]</td>
+<td>0.147</td>
+<td>0.968</td>
+<td>0.661</td>
+</tr>
+<tr><td><a href="#kelly1979">kelly1979</a></td>
+<td>7.86 [dB]</td>
+<td>3.38 [dB]</td>
+<td>6.06 [dB]</td>
+<td>0.415</td>
+<td>0.996</td>
+<td>2.882</td>
+</tr>
+<tr><td><a href="#hvei_cff2022">hvei_cff2022</a></td>
+<td>5.73 [dB]</td>
+<td>2.13 [dB]</td>
+<td>1.36 [dB]</td>
+<td>0.203</td>
+<td>1.121</td>
+<td>0.698</td>
+</tr>
+</TABLE>
+<h2>Model comparison statistics</h2>
+<TABLE>
+<tr><td rowspan="2" colspan="1">Model</td>
+<td rowspan="2" colspan="1">No. of free parameters</td>
+<td rowspan="2" colspan="1">Sum of Square Errors (SS)</td>
+<td rowspan="2" colspan="1">Degrees of freedom (df)</td>
+<td colspan="2">F-test</td>
+<td rowspan="2" colspan="1">AIC</td>
+</tr>
+<tr><td>F-statistic</td>
+<td>p-value</td>
+</tr>
+<tr><td><a href="#elTCSF-3">elTCSF-3 (Reference Model)</a></td>
+<td>3</td>
+<td>77.353</td>
+<td>415</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>-699.211</td>
+</tr>
+<tr><td><a href="#castle-csf">castleCSF</a></td>
+<td>53</td>
+<td>6.819</td>
+<td>365</td>
+<td>7.56828</td>
+<td>0.0000 &check;</td>
+<td>-1614.37</td>
+</tr>
+<tr><td><a href="#stela-csf">stelaCSF</a></td>
+<td>21</td>
+<td>21.697</td>
+<td>397</td>
+<td>16.5885</td>
+<td>0.0000 &check;</td>
+<td>-1194.56</td>
+</tr>
+</TABLE>
+<p>
+We use AIC and F-test to test whether the difference in fitting error is statistically significant at alpha=0.05 level. Both statistical metrics take the number of optimized parameters into account. 
+</p>
+
+<p>
+<b>F-test</b>: For F-test, we compare the fitting results from castleCSF with those of other models. The F-static is calculated using the residual sum of squares and degrees of freedom (number of data points - number of optimized parameters) from both models. The corresponding p-value indicates whether or not the null hypothesis is rejected, where H<sub>0</sub>: the castleCSF does not provide significant better fit than the other model. The p-values less than 0.05 indicates that castleCSF provides a better fit to the data at the significance level of 0.05 (marked with &check;). We performed the F-test for all individual datasets as well as for all datasets combined. For smaller datasets, where the number of data points are comparable to the number of model parameters, F-test can not provide any results since it indicates there is more variance within the models' fits than between.  
+</p>
+
+<p>
+<b>AIC</b>: Akaike information criterion is a statistical estimator of prediction error and relative quality of the models, which accounts for the number of parameters of each model. 
+The model with the lower AIC score is considered to be better and with a good balance of error value and the number of parameters.  
+</p>
+
+<p>
+The sensitivity adjustment column contains a multiplier that is used to adjust the sensitivity of each datasets. It corresponds to <i>s<sub>d</sub></i> in the paper.
+</p>
+<h2>Model parameters</h2>
+<div class="params_frame">
+<div align="center">elTCSF-3</div>
+<div style="white-space: pre-line;">
+Parameters for TCSF component:
+	p.lum_k1 = 0.182145;
+	p.lum_k2 = 0.368317;
+	p.ecc_k1 = 0.0297414;
+</div>
+</div>
+<div class="params_frame">
+<div align="center">castleCSF</div>
+<div style="white-space: pre-line;">
+
+M_lms2acc =
+
+    1.0000    1.0000         0
+    1.0000   -2.3112         0
+   -1.0000   -1.0000   50.9875
+
+	p.rg.sigma_sust = 4.99887;
+	p.rg.beta_sust = 42.1362;
+	p.rg.ch_sust.S_max = [ 854.156 32.9149 0.392226 ];
+	p.rg.ch_sust.f_max = 0.42036;
+	p.rg.ch_sust.bw = 1.9427e-05;
+	p.rg.A_0 = 3098.22;
+	p.rg.f_0 = 0.0872405;
+	p.rg.ecc_drop = 0.0591422;
+	p.rg.ecc_drop_nasal = 2.89609e-05;
+	p.rg.ecc_drop_f = 2.04986e-69;
+	p.rg.ecc_drop_f_nasal = 0.178708;
+	p.yv.sigma_sust = 338.776;
+	p.yv.beta_sust = 0.697809;
+	p.yv.ch_sust.S_max = [ 800951 2.23242e+07 0.0189134 ];
+	p.yv.ch_sust.f_max = 0.2489;
+	p.yv.ch_sust.bw = 2.35477e+11;
+	p.yv.A_0 = 123866;
+	p.yv.f_0 = 1.352e-08;
+	p.yv.ecc_drop = 3.85345e-11;
+	p.yv.ecc_drop_nasal = 5.85804e-141;
+	p.yv.ecc_drop_f = 1.23246e-07;
+	p.yv.ecc_drop_f_nasal = 1.72241e-05;
+	p.ach.ach_sust.S_max = [ 43.1889 28.3403 14.8241 5.58341e-07 9.66861e+09 ];
+	p.ach.ach_sust.f_max = [ 6.87519 62.7101 1.41478 ];
+	p.ach.ach_sust.bw = 0.000182816;
+	p.ach.ach_sust.a = 8.26537e+12;
+	p.ach.ach_sust.A_0 = 650.202;
+	p.ach.ach_sust.f_0 = 1.22933;
+	p.ach.ach_trans.S_max = [ 1.26041e-06 113.953 ];
+	p.ach.ach_trans.f_max = 0.0904969;
+	p.ach.ach_trans.bw = 1.32063;
+	p.ach.ach_trans.a = 0.000241177;
+	p.ach.ach_trans.A_0 = 5.65394;
+	p.ach.ach_trans.f_0 = 5.04488;
+	p.ach.sigma_trans = 0.193684;
+	p.ach.sigma_sust = 12.9088;
+	p.ach.omega_trans_sl = 0.711503;
+	p.ach.omega_trans_c = 1.1151;
+	p.ach.ecc_drop = 3.94007e-09;
+	p.ach.ecc_drop_nasal = 0.0238701;
+	p.ach.ecc_drop_f = 0.17065;
+	p.ach.ecc_drop_f_nasal = 2.7881e-06;
+Parameters for Ach component:
+	p.ach_sust.S_max = [ 43.1889 28.3403 14.8241 5.58341e-07 9.66861e+09 ];
+	p.ach_sust.f_max = [ 6.87519 62.7101 1.41478 ];
+	p.ach_sust.bw = 0.000182816;
+	p.ach_sust.a = 8.26537e+12;
+	p.ach_sust.A_0 = 650.202;
+	p.ach_sust.f_0 = 1.22933;
+	p.ach_trans.S_max = [ 1.26041e-06 113.953 ];
+	p.ach_trans.f_max = 0.0904969;
+	p.ach_trans.bw = 1.32063;
+	p.ach_trans.a = 0.000241177;
+	p.ach_trans.A_0 = 5.65394;
+	p.ach_trans.f_0 = 5.04488;
+	p.sigma_trans = 0.193684;
+	p.sigma_sust = 12.9088;
+	p.omega_trans_sl = 0.711503;
+	p.omega_trans_c = 1.1151;
+	p.ecc_drop = 3.94007e-09;
+	p.ecc_drop_nasal = 0.0238701;
+	p.ecc_drop_f = 0.17065;
+	p.ecc_drop_f_nasal = 2.7881e-06;
+
+Parameters for RG component:
+				p.ch_sust.S_max = [ 854.156 32.9149 0.392226 ];
+				p.ch_sust.f_max = 0.42036;
+				p.ch_sust.bw = 1.9427e-05;
+				p.A_0 = 3098.22;
+				p.f_0 = 0.0872405;
+				p.sigma_sust = 4.99887;
+				p.beta_sust = 42.1362;
+				p.ecc_drop = 0.0591422;
+				p.ecc_drop_nasal = 2.89609e-05;
+				p.ecc_drop_f = 2.04986e-69;
+				p.ecc_drop_f_nasal = 0.178708;
+
+Parameters for YV component:
+				p.ch_sust.S_max = [ 800951 2.23242e+07 0.0189134 ];
+				p.ch_sust.f_max = 0.2489;
+				p.ch_sust.bw = 2.35477e+11;
+				p.A_0 = 123866;
+				p.f_0 = 1.352e-08;
+				p.sigma_sust = 338.776;
+				p.beta_sust = 0.697809;
+				p.ecc_drop = 3.85345e-11;
+				p.ecc_drop_nasal = 5.85804e-141;
+				p.ecc_drop_f = 1.23246e-07;
+				p.ecc_drop_f_nasal = 1.72241e-05;
+
+</div>
+</div>
+<div class="params_frame">
+<div align="center">stelaCSF</div>
+<div style="white-space: pre-line;">
+	p.ach_sust.S_max = [ 6.62682 70.1069 4.41061 7.54866e-07 7.77268e+09 ];
+	p.ach_sust.f_max = [ 3.90861 28.5079 0.169189 ];
+	p.ach_sust.bw = 0.000216833;
+	p.ach_sust.a = 12448.7;
+	p.ach_trans.S_max = [ 0.141738 2817.45 ];
+	p.ach_trans.f_max = 1.08087e-09;
+	p.ach_trans.bw = 4.63911;
+	p.ach_trans.a = 0.000273035;
+	p.sigma_trans = 0.380449;
+	p.sigma_sust = 16.8026;
+	p.ecc_drop = 0.000106084;
+	p.ecc_drop_nasal = 0.0019391;
+	p.ecc_drop_f = 0.0192574;
+	p.ecc_drop_f_nasal = 0.00138716;
+</div>
+</div>
+<h2 id="elTCSF-3"><a class="top_align_button" href="#elTCSF-3">&#8632;</a>CSF model: elTCSF-3</h2>
+<div class="params_frame">
+<div align="center">elTCSF3-Sensitivity-Temporal Frequency</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_elTCSF-3_mech_1.png"/>
+</div>
+</div>
+<div class="params_frame">
+<div align="center">elTCSF3-Sensitivity-Luminance</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_elTCSF-3_mech_2.png"/>
+</div>
+</div>
+<div class="params_frame">
+<div align="center">elTCSF3-Sensitivity-Eccentricity</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_elTCSF-3_mech_3.png"/>
+</div>
+</div>
+<h2 id="castle-csf"><a class="top_align_button" href="#castle-csf">&#8632;</a>CSF model: castleCSF</h2>
+<div class="params_frame">
+<div align="center">Color mechanisms</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_castleCSF_mech_1.png"/>
+</div>
+</div>
+<div class="params_frame">
+<div align="center">Sustained and transient response</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_castleCSF_mech_2.png"/>
+</div>
+</div>
+<div class="params_frame">
+<div align="center">Peak sensitivity</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_castleCSF_mech_3.png"/>
+</div>
+</div>
+<div class="params_frame">
+<div align="center">castleCSF-Sensitivity-Temporal Frequency</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_castleCSF_mech_4.png"/>
+</div>
+</div>
+<h2 id="stela-csf"><a class="top_align_button" href="#stela-csf">&#8632;</a>CSF model: stelaCSF</h2>
+<div class="params_frame">
+<div align="center">Sustained and transient response</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_stelaCSF_mech_1.png"/>
+</div>
+</div>
+<div class="params_frame">
+<div align="center">Peak sensitivity</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_stelaCSF_mech_2.png"/>
+</div>
+</div>
+<div class="params_frame">
+<div align="center">stelaCSF-Sensitivity-Temporal Frequency</div>
+<div style="white-space: pre-line;">
+<img src="fig_csf_stelaCSF_mech_3.png"/>
+</div>
+</div>
+<h2>Legend</h2>
+<p>To keep the plots legible, only up to 3 models are plotted.</p>
+<img src="legend.png"/>
+<h2 id="hartmann1979"><a class="top_align_button" href="#hartmann1979">&#8632;</a>Dataset: [hartmann1979] Hartmann et al. 1979</h2>
+<div>CFF as a function of eccentricity at different luminance levels<br/>
+<img src="fig_hartmann1979_1.png"/>
+<br/></div>
+<h2 id="krajancich2021"><a class="top_align_button" href="#krajancich2021">&#8632;</a>Dataset: [krajancich2021] Krajancich et al. 2021</h2>
+<div>Critical fusion frequency at eccentricities<br/>
+<img src="fig_krajancich2021_1.png"/>
+<br/></div>
+<div>CFF at luminance levels for 0.57 cpd<br/>
+<img src="fig_krajancich2021_2.png"/>
+<br/></div>
+<div>CFF at luminance levels, foveal vision (ecc=0)<br/>
+<img src="fig_krajancich2021_3.png"/>
+<br/></div>
+<h2 id="kelly1979"><a class="top_align_button" href="#kelly1979">&#8632;</a>Dataset: [kelly1979] Kelly 1979</h2>
+<div>Spatial CSF for different temporal frequencies<br/>
+<img src="fig_kelly1979_1.png"/>
+<br/></div>
+<div>Temporal CSF for different spatial frequencies<br/>
+<img src="fig_kelly1979_2.png"/>
+<br/></div>
+</body>
+</html>
