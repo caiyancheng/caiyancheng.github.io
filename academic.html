@@ -12,14 +12,15 @@
     </script>
     <title>Private Zone</title>
     <script>
-    function checkPassword() {
-        var password = prompt("Please enter the password:");
-        if (password === "jason01") {
-            window.location.href = "private_exps.html"; // 密码正确，跳转到私人区域页面
-        } else {
-            alert("Incorrect password. Access denied."); // 密码错误，显示提示信息
+        function checkPassword() {
+            var password = prompt("Please enter the password:");
+            if (password === "jason01") {
+                window.location.href = "private_exps.html"; // 密码正确，跳转到私人区域页面
+            } else {
+                alert("Incorrect password. Access denied."); // 密码错误，显示提示信息
+            }
+            return false; // 阻止默认行为
         }
-    }
     </script>
 
     <!-- Required meta tags -->
@@ -69,7 +70,7 @@
                         <a class="nav-link" href="life.html">My Life</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="private_exps.html" onclick="checkPassword()">Private Zone</a>
+                        <a class="nav-link" href="#" onclick="return checkPassword()">Private Zone</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#Research Experience">Research Experience</a>
