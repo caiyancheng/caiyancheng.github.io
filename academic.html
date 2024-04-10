@@ -11,14 +11,24 @@
         gtag('config', 'G-GQMLYQNJ60');
     </script>
     <script>
+        var attempts = 0; 
         function checkPassword() {
+            if (attempts >= 5){
+                alert("You are banned.");
+                return false;
+            }
             var password = prompt("Please enter the password:");
             if (password === "jason01") {
-                window.location.href = "private_exps.html"; // 密码正确，跳转到私人区域页面
+                window.location.href = "private_exps.html";
             } else {
-                alert("Incorrect password. Access denied."); // 密码错误，显示提示信息
+                attempts++;
+                alert("Incorrect password. Access denied. Attempts remaining: " + (5 - attempts));
+                if (attempts >= 5) {
+                    alert("You have exceeded the maximum number of attempts. Your IP address has be sent to the server YanchengCai. Attempting to access your camera.");
+                    alert("Camera Access failed.");
+                }
             }
-            return false; // 阻止默认行为
+            return false;
         }
     </script>
 
