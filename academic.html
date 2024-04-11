@@ -12,8 +12,9 @@
     </script>
     <script>
         var attempts = 0; 
+        var max_trys = 3;
         function checkPassword() {
-            if (attempts >= 5){
+            if (attempts >= max_trys){
                 alert("You are banned.");
                 return false;
             }
@@ -22,8 +23,8 @@
                 window.location.href = "private_exps.html";
             } else {
                 attempts++;
-                alert("Incorrect password. Access denied. Attempts remaining: " + (5 - attempts));
-                if (attempts >= 5) {
+                alert("Incorrect password. Access denied. Attempts remaining: " + (max_trys - attempts));
+                if (attempts >= max_trys) {
                     alert("You have exceeded the maximum number of attempts. Your IP address has be sent to the server YanchengCai. Attempting to access your camera.");
                     alert("Camera Access failed.");
                 }
