@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 ppd = 60
 
-save_root_path = 'contour_plots/cvvdp/different_luminance'
+save_root_path = 'contour_plots_arc_scale/cvvdp/different_luminance'
 os.makedirs(save_root_path, exist_ok=True)
 
 json_data_path = rf'../test/new_data_logs/cvvdp/different_luminance/cvvdp_test_on_gabors_different_L_b_contour_plot_ppd_{ppd}_final.json'
@@ -30,17 +30,18 @@ y_sensitivity_ticks = [1, 10, 100, 1000]
 
 plot_L_b_matrix = np.array(plot_L_b_matrix_list[0])
 plot_contrast_matrix = np.array(plot_contrast_matrix_list[0])
-plot_JOD_score_matrix = np.array(plot_JOD_score_matrix_list[0])
+plot_JOD_score_matrix = 1 - np.array(plot_JOD_score_matrix_list[0]) / 10
 
 plot_figure_data_matrix_list = [plot_JOD_score_matrix]
 plot_figure_name_list = [f'JOD Score - cvvdp']
 
 for figure_index in range(len(plot_figure_name_list)):
-    plt.figure(figsize=(5, 3.5), dpi=300)
+    plt.figure(figsize=(5, 3), dpi=300)
+    levels = np.linspace(0, 1, 50)
     plt.contourf(plot_L_b_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                 levels=20, cmap='rainbow', alpha=0.3)
+                 levels=levels, cmap='rainbow', alpha=0.3)
     plt.contour(plot_L_b_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                levels=20, cmap='rainbow')
+                levels=levels, cmap='rainbow')
     plt.plot(castleCSF_result_luminance_list, castleCSF_result_sensitivity_list, 'k', linestyle='--', linewidth=2,
              label='castleCSF prediction')
     plt.xlabel('Stimulus Luminance (cd/m$^2$)', fontsize=12)

@@ -13,7 +13,7 @@ from sklearn.metrics import root_mean_squared_error
 from scipy.stats import pearsonr, spearmanr
 ppd = 60
 
-save_root_path = 'new_contour_plots/baseline/different_area'
+save_root_path = 'new_contour_plots_arc_scale/baseline/different_area'
 os.makedirs(save_root_path, exist_ok=True)
 
 json_data_path = rf'../test/new_data_logs/baseline/different_area/baseline_test_on_gabors_different_area_contour_plot_ppd_{ppd}_final_aim.json'
@@ -49,11 +49,13 @@ y_sensitivity_ticks = [1, 10, 100, 1000]
 plot_area_matrix = np.array(plot_area_matrix_list[0])
 plot_contrast_matrix = np.array(plot_contrast_matrix_list[0])
 plot_cos_similarity_matrix = np.array(plot_cos_similarity_matrix_list[0])
+plot_cos_similarity_matrix_arc_scale = np.arccos(plot_cos_similarity_matrix) / np.arccos(0)
 
 plt.figure(figsize=(5, 3), dpi=300)
-plt.contourf(plot_area_matrix, 1 / plot_contrast_matrix, plot_cos_similarity_matrix,
+levels = np.linspace(0, 1, 100)
+plt.contourf(plot_area_matrix, 1 / plot_contrast_matrix, np.arccos(plot_cos_similarity_matrix),
              levels=20, cmap='rainbow', alpha=0.3)
-contours = plt.contour(plot_area_matrix, 1 / plot_contrast_matrix, plot_cos_similarity_matrix,
+contours = plt.contour(plot_area_matrix, 1 / plot_contrast_matrix, np.arccos(plot_cos_similarity_matrix),
             levels=20, cmap='rainbow')
 
 diff_list = list(abs(contours.levels-aim_cos_similarity))

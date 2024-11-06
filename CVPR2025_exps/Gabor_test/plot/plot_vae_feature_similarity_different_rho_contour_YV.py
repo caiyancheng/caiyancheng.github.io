@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 ppd = 60
 
-save_root_path = 'contour_plots/vae/different_rho_YV'
+save_root_path = 'contour_plots_arc_scale/vae/different_rho_YV'
 os.makedirs(save_root_path, exist_ok=True)
 
 json_data_path = rf'../test/new_data_logs/vae/different_rho_YV/vae_test_on_gabors_different_rho_contour_plot_ppd_{ppd}_YV_final.json'
@@ -31,6 +31,10 @@ x_rho_ticks = [0.5, 1, 2, 4, 8, 16, 32]
 y_contrast_ticks = [0.001, 0.01, 0.1, 1]
 y_sensitivity_ticks = [5, 10, 100, 1000]
 
+max_L1_L2_json_path = r'E:\Py_codes\LVM_Comparision\Feature_Similarity_paper_report\Compute_Max_Loss_all_models/max_L1_L2_vae.json'
+with open(max_L1_L2_json_path, 'r') as fp:
+    json_data = json.load(fp)
+
 for vae_model_index in tqdm(range(len(vae_model_name_list))):
     vae_model_name = vae_model_name_list[vae_model_index]
     vae_model_name_simple = vae_model_name.split('/')[-1]
@@ -42,19 +46,24 @@ for vae_model_index in tqdm(range(len(vae_model_name_list))):
     plot_final_feature_L2_similarity_matrix = np.array(plot_final_feature_L2_similarity_matrix_list[vae_model_index])
     plot_final_feature_cos_similarity_matrix = np.array(plot_final_feature_cos_similarity_matrix_list[vae_model_index])
 
-    plot_figure_data_matrix_list = [plot_final_feature_L1_similarity_matrix,
-                                    plot_final_feature_L2_similarity_matrix,
-                                    plot_final_feature_cos_similarity_matrix]
+    plot_final_feature_cos_similarity_matrix[plot_final_feature_cos_similarity_matrix > 1] = 1
+    plot_figure_data_matrix_list = [plot_final_feature_L1_similarity_matrix / json_data['max_L1'][vae_model_index],
+                                    plot_final_feature_L2_similarity_matrix / json_data['max_L2'][vae_model_index],
+                                    np.arccos(plot_final_feature_cos_similarity_matrix) / np.arccos(-1),
+                                    np.arccos(plot_final_feature_cos_similarity_matrix) / np.arccos(
+                                        json_data['min_cos'][vae_model_index])]
     plot_figure_name_list = [f'{vae_model_name_simple} - L1 similarity - final feature',
                              f'{vae_model_name_simple} - L2 similarity - final feature',
-                             f'{vae_model_name_simple} - cos similarity - final feature']
+                             f'{vae_model_name_simple} - arccos cos similarity - final feature',
+                             f'{vae_model_name_simple} - arccos-scale cos similarity - final feature']
 
     for figure_index in range(len(plot_figure_name_list)):
-        plt.figure(figsize=(5, 3.5), dpi=300)
+        plt.figure(figsize=(5, 3), dpi=300)
+        levels = np.linspace(0, 1, 50)
         plt.contourf(plot_rho_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                     levels=20, cmap='rainbow', alpha=0.3)
+                     levels=levels, cmap='rainbow', alpha=0.3)
         plt.contour(plot_rho_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                    levels=20, cmap='rainbow')
+                    levels=levels, cmap='rainbow')
         plt.plot(castleCSF_result_rho_list, castleCSF_result_sensitivity_list, 'k', linestyle='--', linewidth=2,
                  label='castleCSF prediction (YV)')
         plt.xlabel('Stimulus Spatial Frequency (cpd)', fontsize=12)

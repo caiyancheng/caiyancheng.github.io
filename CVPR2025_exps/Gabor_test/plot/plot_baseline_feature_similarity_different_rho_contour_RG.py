@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 ppd = 60
 
-save_root_path = 'contour_plots/baseline/different_rho_RG'
+save_root_path = 'contour_plots_arc_scale/baseline/different_rho_RG'
 os.makedirs(save_root_path, exist_ok=True)
 
 json_data_path = rf'../test/new_data_logs/baseline/different_rho_RG/baseline_test_on_gabors_different_rho_contour_plot_ppd_{ppd}_RG_final.json'
@@ -36,20 +36,28 @@ plot_contrast_matrix = np.array(plot_contrast_matrix_list[0])
 plot_L1_similarity_matrix = np.array(plot_L1_similarity_matrix_list[0])
 plot_L2_similarity_matrix = np.array(plot_L2_similarity_matrix_list[0])
 plot_cos_similarity_matrix = np.array(plot_cos_similarity_matrix_list[0])
+plot_cos_similarity_matrix[plot_cos_similarity_matrix>1] = 1
 
-plot_figure_data_matrix_list = [plot_L1_similarity_matrix,
-                                plot_L2_similarity_matrix,
-                                plot_cos_similarity_matrix]
+max_L1_L2_json_path = r'E:\Py_codes\LVM_Comparision\Feature_Similarity_paper_report\Compute_Max_Loss_all_models/max_L1_L2_baseline.json'
+with open(max_L1_L2_json_path, 'r') as fp:
+    json_data = json.load(fp)
+
+plot_figure_data_matrix_list = [plot_L1_similarity_matrix / json_data['max_L1'],
+                                plot_L2_similarity_matrix / json_data['max_L2'],
+                                np.arccos(plot_cos_similarity_matrix) / np.arccos(-1),
+                                np.arccos(plot_cos_similarity_matrix) / np.arccos(json_data['min_cos'])]
 plot_figure_name_list = [f'L1 similarity - baseline',
                          f'L2 similarity - baseline',
-                         f'cos similarity - baseline']
+                         f'arccos cos similarity - baseline',
+                         f'arccos-scale cos similarity - baseline']
 
 for figure_index in range(len(plot_figure_name_list)):
-    plt.figure(figsize=(5, 3.5), dpi=300)
+    plt.figure(figsize=(5, 3), dpi=300)
+    levels = np.linspace(0, 1, 50)
     plt.contourf(plot_rho_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                 levels=20, cmap='rainbow', alpha=0.3)
+                 levels=levels, cmap='rainbow', alpha=0.3)
     plt.contour(plot_rho_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                levels=20, cmap='rainbow')
+                levels=levels, cmap='rainbow')
     plt.plot(castleCSF_result_rho_list, castleCSF_result_sensitivity_list, 'k', linestyle='--', linewidth=2,
              label='castleCSF prediction (RG)')
     plt.xlabel('Stimulus Spatial Frequency (cpd)', fontsize=12)

@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 ppd_list = [60] #[30, 35, 40, 45, 50, 55, 60]
 
-save_root_path = 'contour_plots/sam/different_area'
+save_root_path = 'contour_plots_arc_scale/sam/different_area'
 os.makedirs(save_root_path, exist_ok=True)
 
 for ppd_index in range(len(ppd_list)):
@@ -34,6 +34,10 @@ for ppd_index in range(len(ppd_list)):
     y_contrast_ticks = [0.001, 0.01, 0.1, 1]
     y_sensitivity_ticks = [1, 10, 100, 1000]
 
+    max_L1_L2_json_path = r'E:\Py_codes\LVM_Comparision\Feature_Similarity_paper_report\Compute_Max_Loss_all_models/max_L1_L2_sam.json'
+    with open(max_L1_L2_json_path, 'r') as fp:
+        json_data = json.load(fp)
+
     for sam_model_index in tqdm(range(len(sam_model_name_list))):
         sam_model_name = sam_model_name_list[sam_model_index]
         sam_model_name_simple = sam_model_name.split('/')[-1]
@@ -48,19 +52,24 @@ for ppd_index in range(len(ppd_list)):
         plot_final_feature_cos_similarity_matrix = np.array(
             plot_final_feature_cos_similarity_matrix_list[sam_model_index])
 
-        plot_figure_data_matrix_list = [plot_final_feature_L1_similarity_matrix,
-                                        plot_final_feature_L2_similarity_matrix,
-                                        plot_final_feature_cos_similarity_matrix]
-        plot_figure_name_list = [f'{sam_model_name_simple} - L1 similarity - final feature',
-                                 f'{sam_model_name_simple} - L2 similarity - final feature',
-                                 f'{sam_model_name_simple} - cos similarity - final feature']
+        plot_final_feature_cos_similarity_matrix[plot_final_feature_cos_similarity_matrix > 1] = 1
+        plot_figure_data_matrix_list = [plot_final_feature_L1_similarity_matrix / json_data['max_L1'][sam_model_index],
+                                        plot_final_feature_L2_similarity_matrix / json_data['max_L2'][sam_model_index],
+                                        np.arccos(plot_final_feature_cos_similarity_matrix) / np.arccos(-1),
+                                        np.arccos(plot_final_feature_cos_similarity_matrix) / np.arccos(
+                                            json_data['min_cos'][sam_model_index])]
+        plot_figure_name_list = [f'{sam_model_name} - L1 similarity - final feature',
+                                 f'{sam_model_name} - L2 similarity - final feature',
+                                 f'{sam_model_name} - arccos cos similarity - final feature',
+                                 f'{sam_model_name} - arccos-scale cos similarity - final feature']
 
         for figure_index in range(len(plot_figure_name_list)):
-            plt.figure(figsize=(5, 3.5), dpi=300)
+            plt.figure(figsize=(5, 3), dpi=300)
+            levels = np.linspace(0, 1, 50)
             plt.contourf(plot_area_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                         levels=20, cmap='rainbow', alpha=0.3)
+                         levels=levels, cmap='rainbow', alpha=0.3)
             plt.contour(plot_area_matrix, 1 / plot_contrast_matrix, plot_figure_data_matrix_list[figure_index],
-                        levels=20, cmap='rainbow')
+                        levels=levels, cmap='rainbow')
             plt.plot(castleCSF_result_area_list, castleCSF_result_sensitivity_list, 'k', linestyle='--', linewidth=2,
                      label='castleCSF prediction')
             plt.xlabel('Stimulus Area (degree$^2$)', fontsize=12)
