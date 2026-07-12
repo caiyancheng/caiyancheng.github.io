@@ -50,6 +50,50 @@
     <!-- <script src="js/main.js"></script>
     <script src="js/scroll.js"></script> -->
     <title>Yancheng Cai</title>
+
+    <style>
+        body {
+            color: #222;
+        }
+
+        .section-title {
+            display: inline-block;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2c3e91;
+        }
+
+        .entry-card.row {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 16px;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            margin-bottom: 18px;
+            transition: box-shadow .2s ease, transform .2s ease;
+        }
+
+        .entry-card.row:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        #pubs .entry-card img.img-fluid {
+            height: 220px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 12px auto;
+        }
+
+        @media (max-width: 767px) {
+            #pubs .entry-card img.img-fluid {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
 
@@ -109,23 +153,26 @@
 
             <div class="col-md-9">
                 <br>
-                <p> I am currently a second-year Ph.D. student in Computer Science and Technology at the University of
+                <p> I am currently a Ph.D. candidate in Computer Science and Technology at the University of
                     Cambridge, under the supervision of Prof. <a href="https://www.cl.cam.ac.uk/~rkm38/"
-                        target="_blank">Rafal Mantiuk</a>. I recently obtained my Bachelor of
+                        target="_blank">Rafal Mantiuk</a>. I obtained my Bachelor of
                     Engineering degree from <a href="https://www.fudan.edu.cn/en/" target="_blank"> Fudan University
                     </a> in 2023. In 2022, I had the opportunity to work as a research assistant at Stanford University
                     - <a href="https://svl.stanford.edu/" target="_blank"> SVL </a>,
                     advised by Prof. <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a> and Prof. <a
                         href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a>. Prior to that, I
                     served as a research assistant at Fudan University from 2021 to 2023, under the guidance of Prof.
-                    <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>.
+                    <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>. More
+                    recently, I worked as a Research Scientist Intern building Vidi-Gen at <b>ByteDance</b> USA,
+                    and with the Computational Photography team at <b>LG Electronics</b> USA.
                 </p>
 
-                <p> I am highly interested in the fields of computer vision, robotics, and computer graphics.
-                    Specifically, throughout my doctoral studies, I intend to concentrate on the realm of Display Image
-                    Quality Assessment. My objective is to integrate insights from the human visual system with
-                    cutting-edge machine learning techniques, thereby establishing robust computational models for the
-                    evaluation of display image and video quality.
+                <p> I am highly interested in the fields of computer vision, computer graphics, multimodal LLMs, and
+                    video generation. My doctoral research bridges insights from the human visual system with
+                    cutting-edge machine learning techniques, establishing robust computational models for the
+                    evaluation of display image and video quality. More recently, this interest has extended into
+                    multimodal large language models and long-form video generation, an area I am now actively
+                    working on.
                 </p>
 
                 <p>
@@ -148,16 +195,17 @@
 
     <!-- News -->
     <div class="container">
-        <h3 id="News" style="padding-top: 80px; margin-top: -80px;">News</h3>
+        <h3 id="News" class="section-title" style="padding-top: 80px; margin-top: -80px;">News</h3>
         <ul>
             <!--
 			<li>
 				<font color="firebrick">[Upcoming]</font> Invited Talk at <b>Carnegie Mellon University</b>.
 			</li>
 			-->
+            <li> <b>[2026/07]</b>: A second-authored paper has won the <span style="color: darkred; font-weight: bold;">Best Student Paper award</span> 🏆 at QoMEX 2026.
             <li> <b>[2025/08]</b>: A first-authored paper has been accepted by ACM SIGGRAPH Asia 2025 (Oral).
             <li> <b>[2025/08]</b>: Invited talk at NVIDIA USA & MIT CSAIL.
-            <li> <b>[2025/02]</b>: A first-authored paper has been accepted by CVPR 2025 as Highlight.
+            <li> <b>[2025/02]</b>: A first-authored paper has been accepted by CVPR 2025 as <span style="color: darkred; font-weight: bold;">Highlight</span> 🏅.
             <li> <b>[2025/01]</b>: A co-authored paper has been accepted by IEEE Transactions on Pattern Analysis and
                 Machine Intelligence (T-PAMI, Top1 CV Journal).
             <li> <b>[2024/07]</b>: A first-authored paper has been accepted by ACM SIGGRAPH Asia 2024 (Oral).
@@ -175,13 +223,11 @@
 
     <!-- Education -->
     <div class="container">
-        <h3 id="Education" stype="padding-top: 80px; margin-top: -80px;">
+        <h3 id="Education" class="section-title" style="padding-top: 80px; margin-top: -80px;">
             Education
         </h3>
 
-        <hr>
-
-        <div class="row">
+        <div class="row entry-card">
             <div class="col-md-2">
                 <a href="https://www.cam.ac.uk/" target="_blank"><img class="img-fluid img-rounded"
                         src="images/Cambridge.jpeg" alt=""></a>
@@ -194,12 +240,11 @@
                 <br>
                 Department of Computer Science and Technology<br>
                 Ph.D. Student<br><br>
-                October 2023 - Present
+                October 2023 - Present (expected 2027)
             </div>
         </div>
-        <hr>
 
-        <div class="row">
+        <div class="row entry-card">
             <div class="col-md-2">
                 <a href="https://www.stanford.edu/" target="_blank"><img class="img-fluid img-rounded"
                         src="images/stanford_university.jpg" alt=""></a>
@@ -219,9 +264,8 @@
                 January 2022 - June 2023
             </div>
         </div>
-        <hr>
 
-        <div class="row">
+        <div class="row entry-card">
             <div class="col-md-2">
                 <a href="https://www.fudan.edu.cn/en/" target="_blank"><img class="img-fluid img-rounded"
                         src="images/fudan_university.jpg" alt=""></a>
@@ -239,226 +283,305 @@
                 September 2019 - June 2023
             </div>
         </div>
-        <hr>
     </div><br><br>
 
 
 
-    <!-- Publications -->
+    <!-- Publications & Research Experience -->
     <div class="container">
-        <h3 id="Publications" style="padding-top: 80px; margin-top: -80px;">
-            Publications
-        </h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 id="Publications" class="section-title" style="padding-top: 80px; margin-top: -80px;">
+                    Publications
+                </h3>
 
-        <div id="pubs">
-            <font color="black">(* indicates equal contribution)</font><br>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="images/CameraVDP_plot.png" alt="">
-                </div>
-                <div class="col-md-9">
-                    <a href="https://caiyancheng.github.io/academic.html"><b>Yancheng Cai</b></a>,
-                    <a href="https://www.linkedin.com/in/robert-wanat-0816a090">Robert Wanat</a>,
-                    <a href="https://www.cl.cam.ac.uk/~rkm38/">Rafał K. Mantiuk</a>
-                    <br>
-                    <b>
-                        <font color="black">CameraVDP: Perceptual Display Assessment with Uncertainty Estimation via Camera and Visual Difference Prediction
-                        </font>
-                    </b><br>
-                    <b><a href="https://asia.siggraph.org/2025/" target="_blank">SIGGRAPH Asia 2025</a></b>, Accepted<br>
-                    <a href="papers/CameraVDP_siggraph_asia_2025.pdf" ,="" target="_blank"> <small>[Paper]</small></a>
-                    <a href="https://arxiv.org/abs/2509.08947" ,="" target="_blank"> <small>[Arxiv]</small></a>
-                    <a href="https://www.cl.cam.ac.uk/research/rainbow/projects/cameravdp/" ,="" target="_blank"> <small>[Project]</small></a>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="images/CVPR2025-1.png" alt="">
-                </div>
-                <div class="col-md-9">
-                    <a href="https://caiyancheng.github.io/academic.html"><b>Yancheng Cai</b></a>,
-                    <a href="https://feiiyin.github.io/">Fei Yin</a>,
-                    <a href="https://www.cst.cam.ac.uk/people/dh706">Dounia Hammou</a>,
-                    <a href="https://www.cl.cam.ac.uk/~rkm38/">Rafał K. Mantiuk</a>
-                    <br>
-                    <b>
-                        <font color="black">Do computer vision foundation models learn the low-level characteristics of the human visual system?
-                        </font>
-                    </b><br>
-                    <b><a href="https://asia.siggraph.org/2024/" target="_blank">CVPR 2025</a></b>, Accepted - <span style="color: red; font-weight: bold;">Highlight (Top 2% of submissions)</span><br>
-                    <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Cai_Do_Computer_Vision_Foundation_Models_Learn_the_Low-level_Characteristics_of_CVPR_2025_paper.pdf" ,="" target="_blank"> <small>[Paper]</small></a>
-                    <a href="https://www.cl.cam.ac.uk/research/rainbow/projects/vfm_hvs/" ,="" target="_blank"> <small>[Project]</small></a>
-                    <a href="https://github.com/caiyancheng/VFM_HVS_CVPR2025" ,="" target="_blank"> <small>[Code]</small></a>
-                    <a href="https://caiyancheng.github.io/synthetic_test_webpage_lvm/index.html" ,="" target="_blank"> <small>[Results]</small></a>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="images/elaTCSF_plot_2.jpg" alt="">
-                </div>
-                <div class="col-md-9">
-                    <a href="https://caiyancheng.github.io/academic.html"><b>Yancheng Cai</b></a>,
-                    <a href="https://www.ntnu.edu/employees/ali.bozorgian">Ali Bozorgian</a>,
-                    <a href="https://malihaashraf.github.io/">Maliha Ashraf</a>,
-                    <a href="https://www.linkedin.com/in/robert-wanat-0816a090">Robert Wanat</a>,
-                    <a href="https://www.cl.cam.ac.uk/~rkm38/">Rafał K. Mantiuk</a>
-                    <br>
-                    <b>
-                        <font color="black">elaTCSF: A Temporal Contrast Sensitivity Function for Flicker Detection and
-                            Modeling Variable Refresh Rate Flicker
-                        </font>
-                    </b><br>
-                    <b><a href="https://asia.siggraph.org/2024/" target="_blank">SIGGRAPH Asia 2024</a></b>, Accepted
-                    (With Strong Accept)<br>
-                    <a href="https://www.cl.cam.ac.uk/research/rainbow/projects/elaTCSF/" ,="" target="_blank">
-                        <small>[Project]</small></a>
-                    <a href="papers/elaTCSF_siggraph_asia_2024.pdf" ,="" target="_blank"> <small>[Paper]</small></a>
+                <div id="pubs">
+                    <font color="black">(* indicates equal contribution)</font><br><br>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/CameraVDP_plot.png" alt="">
+                        </div>
+                        <div class="col-12">
+                            <a href="https://caiyancheng.github.io/academic.html"><b>Yancheng Cai</b></a>,
+                            <a href="https://www.linkedin.com/in/robert-wanat-0816a090">Robert Wanat</a>,
+                            <a href="https://www.cl.cam.ac.uk/~rkm38/">Rafał K. Mantiuk</a>
+                            <br>
+                            <b>
+                                <font color="black">CameraVDP: Perceptual Display Assessment with Uncertainty Estimation via Camera and Visual Difference Prediction
+                                </font>
+                            </b><br>
+                            <b><a href="https://asia.siggraph.org/2025/" target="_blank">SIGGRAPH Asia 2025</a></b>, Published<br>
+                            <a href="https://dl.acm.org/doi/10.1145/3757377.3763825" ,="" target="_blank"> <small>[DOI]</small></a>
+                            <a href="papers/CameraVDP_siggraph_asia_2025.pdf" ,="" target="_blank"> <small>[Paper]</small></a>
+                            <a href="https://arxiv.org/abs/2509.08947" ,="" target="_blank"> <small>[Arxiv]</small></a>
+                            <a href="https://www.cl.cam.ac.uk/research/rainbow/projects/cameravdp/" ,="" target="_blank"> <small>[Project]</small></a>
+                        </div>
+                    </div>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/CVPR2025-1.png" alt="">
+                        </div>
+                        <div class="col-12">
+                            <a href="https://caiyancheng.github.io/academic.html"><b>Yancheng Cai</b></a>,
+                            <a href="https://feiiyin.github.io/">Fei Yin</a>,
+                            <a href="https://www.cst.cam.ac.uk/people/dh706">Dounia Hammou</a>,
+                            <a href="https://www.cl.cam.ac.uk/~rkm38/">Rafał K. Mantiuk</a>
+                            <br>
+                            <b>
+                                <font color="black">Do computer vision foundation models learn the low-level characteristics of the human visual system?
+                                </font>
+                            </b><br>
+                            <b><a href="https://asia.siggraph.org/2024/" target="_blank">CVPR 2025</a></b>, Published - <span style="color: red; font-weight: bold;">Highlight (Top 2% of submissions)</span><br>
+                            <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Cai_Do_Computer_Vision_Foundation_Models_Learn_the_Low-level_Characteristics_of_CVPR_2025_paper.pdf" ,="" target="_blank"> <small>[Paper]</small></a>
+                            <a href="https://www.cl.cam.ac.uk/research/rainbow/projects/vfm_hvs/" ,="" target="_blank"> <small>[Project]</small></a>
+                            <a href="https://github.com/caiyancheng/VFM_HVS_CVPR2025" ,="" target="_blank"> <small>[Code]</small></a>
+                            <a href="https://caiyancheng.github.io/synthetic_test_webpage_lvm/index.html" ,="" target="_blank"> <small>[Results]</small></a>
+                        </div>
+                    </div>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/elaTCSF_plot_2.jpg" alt="">
+                        </div>
+                        <div class="col-12">
+                            <a href="https://caiyancheng.github.io/academic.html"><b>Yancheng Cai</b></a>,
+                            <a href="https://www.ntnu.edu/employees/ali.bozorgian">Ali Bozorgian</a>,
+                            <a href="https://malihaashraf.github.io/">Maliha Ashraf</a>,
+                            <a href="https://www.linkedin.com/in/robert-wanat-0816a090">Robert Wanat</a>,
+                            <a href="https://www.cl.cam.ac.uk/~rkm38/">Rafał K. Mantiuk</a>
+                            <br>
+                            <b>
+                                <font color="black">elaTCSF: A Temporal Contrast Sensitivity Function for Flicker Detection and
+                                    Modeling Variable Refresh Rate Flicker
+                                </font>
+                            </b><br>
+                            <b><a href="https://asia.siggraph.org/2024/" target="_blank">SIGGRAPH Asia 2024</a></b>, Published
+                            (With Strong Accept)<br>
+                            <a href="https://www.cl.cam.ac.uk/research/rainbow/projects/elaTCSF/" ,="" target="_blank">
+                                <small>[Project]</small></a>
+                            <a href="papers/elaTCSF_siggraph_asia_2024.pdf" ,="" target="_blank"> <small>[Paper]</small></a>
+                        </div>
+                    </div>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/paper_1.jpg" alt="">
+                        </div>
+                        <div class="col-12">
+                            <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>*,
+                            <a href="https://s-tian.github.io/" target="_blank">Stephen Tian</a>*,
+                            <a href="https://kovenyu.com/" target="_blank">Hong-Xing Yu</a>,
+                            <a href="https://zakharos.github.io/" target="_blank">Sergey Zakharov</a>,
+                            <a href="https://www.thekatherineliu.com/" target="_blank">Katherine Liu</a>,
+                            <a href="https://adriengaidon.com/" target="_blank">Adrien Gaidon</a>,
+                            <a href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a>,
+                            <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>
+                            <br>
+                            <b>
+                                <font color="black">Multi-object manipulation via object-centric neural scattering functions
+                                </font>
+                            </b><br>
+                            <b><a href="https://cvpr2023.thecvf.com/" target="_blank">CVPR 2023</a></b>, Published (With two
+                            Strong Accepts)<br>
+                            <a href="https://s-tian.github.io/projects/actionosf/" ,="" target="_blank">
+                                <small>[Project]</small></a>
+                            <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Tian_Multi-Object_Manipulation_via_Object-Centric_Neural_Scattering_Functions_CVPR_2023_paper.pdf"
+                                ,="" target="_blank"> <small>[Paper]</small></a>
+                            <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
+                        </div>
+                    </div>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/paper_2.jpg" alt="">
+                        </div>
+                        <div class="col-12">
+                            <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>,
+                            <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
+                            <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
+                            <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>,
+                            <a href="https://scholar.google.com/citations?user=Obo7-bIAAAAJ&hl=en" target="_blank">Hongliang
+                                Yan</a>,
+                            <a href="https://openreview.net/profile?id=~Jingdong_Zhang2" target="_blank">Jingdong Zhang</a>,
+                            Jiahao Xu
+                            <br>
+                            <b>
+                                <font color="black">Rethinking Cross-Domain Pedestrian Detection: A Background-Focused
+                                    Distribution Alignment Framework for Instance-free One-Stage Detectors
+                                </font>
+                            </b><br>
+                            <b><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank">TIP (IEEE
+                                    Transactions on Image Processing)</a></b>, Published<br>
+                            <a href="https://ieeexplore.ieee.org/document/10231122" target="_blank">
+                                <small>[IEEE paper]</small></a>
+                            <a href="https://zhuanlan.zhihu.com/p/652557366" target="_blank">
+                                <small>[知乎]</small></a><br>
+                            <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
+                        </div>
+                    </div>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/qomex2026.png" alt="">
+                        </div>
+                        <div class="col-12">
+                            <a href="https://dounia18.github.io/" target="_blank">Dounia Hammou</a>,
+                            <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>,
+                            <a href="https://pavancm.github.io/" target="_blank">Pavan Chennagiri</a>,
+                            <a href="https://scholar.google.com/citations?user=36X0IZcAAAAJ&hl=en" target="_blank">Christos G. Bampis</a>,
+                            <a href="https://www.cl.cam.ac.uk/~rkm38/">Rafał K. Mantiuk</a>
+                            <br>
+                            <b>
+                                <font color="black">Evaluating quality metrics through the lenses of psychophysical measurements of low-level vision
+                                </font>
+                            </b><br>
+                            <b><a href="https://qomex.org/" target="_blank">QoMEX (International Conference on Quality of Multimedia Experience)</a></b>, Published - <span style="color: darkred; font-weight: bold;">Best Student Paper Award</span> 🏆<br>
+                            <a href="https://arxiv.org/abs/2503.16264" target="_blank">
+                                <small>[arxiv]</small></a>
+                            <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
+                        </div>
+                    </div>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/pami.png" alt="">
+                        </div>
+                        <div class="col-12">
+                            <a href="https://openreview.net/profile?id=~Jingdong_Zhang2" target="_blank">Jingdong Zhang</a>,
+                            <a href="https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en&oi=sra" target="_blank">Peng
+                                Ye</a>,
+                            <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
+                            Hancheng Ye,
+                            <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
+                            <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>,
+                            <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>
+                            <br>
+                            <b>
+                                <font color="black">BridgeNet: Comprehensive and Effective Feature Interactions via Bridge
+                                    Feature for Multi-Task Dense Predictions
+                                </font>
+                            </b><br>
+                            <b><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" target="_blank">TPAMI (IEEE
+                                    Transactions on Pattern Analysis and Machine Intelligence)</a></b>, Published<br>
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank">
+                                <small>[IEEE paper]</small></a>
+                            <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
+                        </div>
+                    </div>
+
+                    <div class="row entry-card">
+                        <div class="col-12">
+                            <img class="img-fluid img-rounded" src="images/paper_6.jpg" alt="">
+                        </div>
+                        <div class="col-12">
+                            Lei Lu*,
+                            <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>*,
+                            Hua Huang,
+                            Ping Wang
+                            <br>
+                            <b>
+                                <font color="black">An efficient fine-grained vehicle recognition method based on part-level
+                                    feature
+                                    optimization
+                                </font>
+                            </b><br>
+                            <b><a href="https://dl.acm.org/journal/neuroc" target="_blank">Neurocomputing</a></b>, Published<br>
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0925231223002643" target="_blank">
+                                <small>[paper]</small></a>
+                            <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="images/paper_1.jpg" alt="">
+            <div class="col-md-6">
+                <h3 id="Research Experience" class="section-title" style="padding-top: 80px; margin-top: -80px;">Research Experience</h3>
+
+                <div class="row entry-card">
+                    <div class="col-md-2">
+                        <img class="img-fluid img-rounded" src="images/bytedance-color.svg" alt="" style="width:100%; height:auto;">
+                    </div>
+
+                    <div class="col-md-10">
+                        <b>
+                            <font color="black">ByteDance USA</font>
+                        </b>
+                        <br>
+                        Vidi-Gen<br>
+                        <b>Research Scientist Intern (Ph.D.)</b><br>
+                        Trained the multimodal LLM Vidi-Gen for video understanding and long-form narrative script &
+                        storyboard generation, and architected a self-evaluating multi-agent video-generation system
+                        integrated with Seedance 2.0 for coherent long-form multimodal synthesis.<br><br>
+                        February 2026 - Present
+                    </div>
                 </div>
-                <div class="col-md-9">
-                    <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>*,
-                    <a href="https://s-tian.github.io/" target="_blank">Stephen Tian</a>*,
-                    <a href="https://kovenyu.com/" target="_blank">Hong-Xing Yu</a>,
-                    <a href="https://zakharos.github.io/" target="_blank">Sergey Zakharov</a>,
-                    <a href="https://www.thekatherineliu.com/" target="_blank">Katherine Liu</a>,
-                    <a href="https://adriengaidon.com/" target="_blank">Adrien Gaidon</a>,
-                    <a href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a>,
-                    <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>
-                    <br>
-                    <b>
-                        <font color="black">Multi-object manipulation via object-centric neural scattering functions
-                        </font>
-                    </b><br>
-                    <b><a href="https://cvpr2023.thecvf.com/" target="_blank">CVPR 2023</a></b>, Published (With two
-                    Strong Accepts)<br>
-                    <a href="https://s-tian.github.io/projects/actionosf/" ,="" target="_blank">
-                        <small>[Project]</small></a>
-                    <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Tian_Multi-Object_Manipulation_via_Object-Centric_Neural_Scattering_Functions_CVPR_2023_paper.pdf"
-                        ,="" target="_blank"> <small>[Paper]</small></a>
-                    <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
+
+                <div class="row entry-card">
+                    <div class="col-md-2">
+                        <img class="img-fluid img-rounded" src="images/LG_logo.svg" alt="">
+                    </div>
+
+                    <div class="col-md-10">
+                        <b>
+                            <font color="black">LG Electronics USA</font>
+                        </b>
+                        <br>
+                        Computational Photography Team<br>
+                        <b>Research Scientist Intern (Ph.D.)</b><br>
+                        Proposed an automated display assessment pipeline integrating calibration, artifact removal, color
+                        correction, geometric rectification, and deblurring, used to extensively evaluate mainstream OLED and
+                        mini-LED displays; contributing to the 2027 IDMS standard.<br><br>
+                        October 2025 - December 2025
+                    </div>
+                </div>
+
+                <div class="row entry-card">
+                    <div class="col-md-2">
+                        <a href="https://www.stanford.edu/" target="_blank"><img class="img-fluid img-rounded"
+                                src="images/stanford_university.jpg" alt=""></a>
+                    </div>
+
+                    <div class="col-md-10">
+                        <b>
+                            <font color="black">Stanford University</font>
+                        </b>
+                        <br>
+                        Stanford Vision and Learning Lab<br>
+                        <b>Research Assistant (UVRI Intern)</b><br>
+                        Advisors: Prof. <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>, Prof. <a
+                            href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a>.<br><br>
+                        January 2022 - June 2023
+                    </div>
+                </div>
+
+                <div class="row entry-card">
+                    <div class="col-md-2">
+                        <a href="https://www.fudan.edu.cn/en/" target="_blank"><img class="img-fluid img-rounded"
+                                src="images/fudan_university.jpg" alt=""></a>
+                    </div>
+
+                    <div class="col-md-10">
+                        <b>
+                            <font color="black">Fudan University</font>
+                        </b>
+                        <br>
+                        Embedded Deep Learning and Visual Analysis Lab<br>
+                        <b>Research Assistant</b><br>
+                        Advisor: Prof. <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>.<br><br>
+                        October 2020 - June 2023
+                    </div>
                 </div>
             </div>
-
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="images/paper_2.jpg" alt="">
-                </div>
-                <div class="col-md-9">
-                    <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>,
-                    <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
-                    <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
-                    <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>,
-                    <a href="https://scholar.google.com/citations?user=Obo7-bIAAAAJ&hl=en" target="_blank">Hongliang
-                        Yan</a>,
-                    <a href="https://openreview.net/profile?id=~Jingdong_Zhang2" target="_blank">Jingdong Zhang</a>,
-                    Jiahao Xu
-                    <br>
-                    <b>
-                        <font color="black">Rethinking Cross-Domain Pedestrian Detection: A Background-Focused
-                            Distribution Alignment Framework for Instance-free One-Stage Detectors
-                        </font>
-                    </b><br>
-                    <b><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank">TIP (IEEE
-                            Transactions on Image Processing)</a></b>, Published<br>
-                    <a href="https://ieeexplore.ieee.org/document/10231122" target="_blank">
-                        <small>[IEEE paper]</small></a>
-                    <a href="https://zhuanlan.zhihu.com/p/652557366" target="_blank">
-                        <small>[知乎]</small></a><br>
-                    <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="images/pami.png" alt="">
-                </div>
-                <div class="col-md-9">
-                    <a href="https://openreview.net/profile?id=~Jingdong_Zhang2" target="_blank">Jingdong Zhang</a>,
-                    <a href="https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en&oi=sra" target="_blank">Peng
-                        Ye</a>,
-                    <a href="https://openreview.net/profile?id=~Bo_Zhang17" target="_blank">Bo Zhang</a>,
-                    Hancheng Ye,
-                    <a href="https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en" target="_blank">Baopu Li</a>,
-                    <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>,
-                    <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>
-                    <br>
-                    <b>
-                        <font color="black">BridgeNet: Comprehensive and Effective Feature Interactions via Bridge
-                            Feature for Multi-Task Dense Predictions
-                        </font>
-                    </b><br>
-                    <b><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" target="_blank">TPAMI (IEEE
-                            Transactions on Pattern Analysis and Machine Intelligence)</a></b>, Published<br>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10870147" target="_blank">
-                        <small>[IEEE paper]</small></a>
-                    <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="img-fluid img-rounded" src="images/paper_6.jpg" alt="">
-                </div>
-                <div class="col-md-9">
-                    Lei Lu*,
-                    <a href="https://caiyancheng.github.io/" target="_blank"><b>Yancheng Cai</b></a>*,
-                    Hua Huang,
-                    Ping Wang
-                    <br>
-                    <b>
-                        <font color="black">An efficient fine-grained vehicle recognition method based on part-level
-                            feature
-                            optimization
-                        </font>
-                    </b><br>
-                    <b><a href="https://dl.acm.org/journal/neuroc" target="_blank">Neurocomputing</a></b>, Published<br>
-                    <a href="https://www.sciencedirect.com/science/article/pii/S0925231223002643" target="_blank">
-                        <small>[paper]</small></a>
-                    <!-- <a href="projects/comp_nerf_dy/comp_nerf_dy.bib" target="_blank"> <small>[OpenReview]</small></a><br> -->
-                </div>
-            </div>
-            <hr>
-
         </div>
-    </div>
-
-
-    <!-- Research Experience -->
-    <div class="container">
-        <h3 id="Research Experience" style="padding-top: 80px; margin-top: -80px;">Research Experience</h3>
-        <ul>
-            <li>
-                January 2022 - June 2023, Research Assistant, Stanford Vision and Learning Lab<br>
-                Advisors: Prof. <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>, Prof. <a
-                    href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a>.
-            </li>
-            <li>
-                October 2020 - June 2023, Research Assistant, Fudan Embedded Deep Learning and Visual Analysis Lab<br>
-                Advisors: Prof. <a href="http://www.it.fudan.edu.cn/En/Data/View/3012" target="_blank">Tao Chen</a>.
-            </li>
-            <!-- <li>
-                January 2021 - November 2021, Research Assistant, Xi'an Research Institute<br>
-                Advisors: Prof. Min Li.
-            </li> -->
-        </ul>
     </div><br><br>
 
 
     <!-- Award -->
     <div class="container">
-        <h3 id="Award" style="padding-top: 80px; margin-top: -80px;">Selected Award</h3>
+        <h3 id="Award" class="section-title" style="padding-top: 80px; margin-top: -80px;">Selected Award</h3>
         <ul>
             <li>2022 China National Scholarship (The <b>highest</b> honorable national scholarship to Chinese students).
                 (0.2%)</li>
@@ -468,16 +591,19 @@
             </li>
             <li>Top Ten Students in School of Information Science and Technology, Fudan University. (1%)</li>
             <li>Fudan University Individual Award for Scientific Research. (0.5%)</li>
+            <li>Fudan Graduate College Star. (0.1%)</li>
         </ul>
     </div><br><br>
 
 
     <!-- Academic Service -->
     <div class="container">
-        <h3 id="Academic_Service" style="padding-top: 80px; margin-top: -80px;">Academic Service</h3>
+        <h3 id="Academic_Service" class="section-title" style="padding-top: 80px; margin-top: -80px;">Academic Service</h3>
         <ul>
-            <li>Journal Reviewer: <b>T-PAMI</b></li>
-            <li>Conference Reviewer: <b>CVPR 2023, CVPR 2022, ECCV 2022</b></li>
+            <li>Reviewer: <b>SIGGRAPH, CVPR, ECCV, ICCV, T-PAMI, T-IP, T-CSVT, T-OG, Eurographics</b></li>
+            <li>Co-organizer of the Cambridge CS Department Rainbow Graphics Tech Seminar (the only Ph.D. student).</li>
+            <li>Assisted in hosting academic webinars in the School of Information Science and Technology, Fudan
+                University (2019-2024).</li>
         </ul>
     </div><br>
 
@@ -485,7 +611,7 @@
         <hr>
         <center>
             <footer>
-                <p>© Yancheng Cai 2023</p>
+                <p>© Yancheng Cai 2026</p>
             </footer>
         </center>
     </div>
